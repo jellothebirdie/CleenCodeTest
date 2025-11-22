@@ -275,3 +275,22 @@ nav a:focus {
 .console-log {
   color: #00ff00;
 }
+
+/* problem description & incorrect solution */
+
+.problem_container {
+  width: 75%;               /* Take up 75% of screen */
+  margin: 0 auto;           /* Center it horizontally */
+  display: flex;            /* Enable side-by-side layout */
+  gap: 10px;                /* Optional spacing between columns */
+
+}
+
+.problem_container > div {
+  flex: 1;                  /* Each child div takes up equal width */
+  background: #f2f2f2;      /* Optional styling */
+  padding: 20px;
+  box-sizing: border-box;
+  background: #012089;
+  color:white;
+}
