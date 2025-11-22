@@ -1,13 +1,16 @@
-<!-- (ShitCode) -->
+<!-- (CleenCode) -->
 <!-- HTML template for welcome page -->
 
 {% extends "base.html" %}
 
 {% block main_content %}
 
-<h1>CleenCode</h1>
-<h5>Clean Code. Clean the Ocean.</h5>
-<h5>Prep for coding interviews in the age of AI.</h5>
-<p><a href="{{ url_for('main') }}">Start</a></p>
+<h1 class="page_title">CleenCode</h1>
+
+<span class="page_text">
+    <h5>Clean Code. Clean the Ocean.</h5>
+    <h5>Prep for coding interviews in the age of AI.</h5>
+    <p><a href="{{ url_for('main') }}" class="btn">Start</a></p>
+</span>
 
 {% endblock %}

@@ -11,29 +11,36 @@
 
 <body>
 
-{% block nav %}
+  <img src="/static/images/wave.png" class="header-image">
+  <div class="main_content">
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="messages">
+          {% for msg in messages %}
+            <p>{{ msg }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
 
-
-</div>
-{% endblock %}
-
-<!-- Flash Messages -->
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <div id="messages">
-      {% for msg in messages %}
-        <p>{{ msg }}</p>
-      {% endfor %}
+    <!-- Main Content -->
+    <div class="main" id="main">
+      {% block main_content %}
+        <h1>Welcome!</h1>
+      {% endblock %}
     </div>
-  {% endif %}
-{% endwith %}
+  </div>
 
-<!-- Main Content -->
-<div class="main" id="main">
-  {% block main_content %}
-    <h1>Welcome!</h1>
-  {% endblock %}
-</div>
+  <div class="trash-container">
+    <img src="/static/images/trash1.png" class="trash">
+    <img src="/static/images/trash2.png" class="trash">
+    <img src="/static/images/trash3.png" class="trash">
+    <img src="/static/images/trash4.png" class="trash">
+    <img src="/static/images/trash5.png" class="trash">
+    <img src="/static/images/trash6.png" class="trash">
+  </div>
 
+  <script src="/static/js/trash.js"></script>
 </body>
 </html>

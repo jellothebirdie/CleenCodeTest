@@ -1,3 +1,80 @@
 body {
-    background-color: #4DB1E0;
+    background-image: linear-gradient(to bottom, #4A6CDD, #012089);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/* Trash style */
+
+.trash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* stay behind main content */
+  overflow: hidden;
+}
+
+.trash {
+  position: absolute;
+  width: 75px;
+}
+
+/* Other */
+
+.header-image {
+  position: fixed;   /* sticks to viewport */
+  top: 0;            /* at top */
+  left: 0;           /* start from left edge */
+  width: 100%;       /* cover full width */
+  height: auto;      /* maintain aspect ratio */
+  z-index: 1000;     /* above other content */
+}
+
+.main_content {
+  position: relative; /* for z-index */
+  z-index: 1;
+  
+  display: flex;           /* makes children flex items */
+  flex-direction: column;  /* stack vertically */
+  justify-content: center; /* vertical alignment */
+  align-items: center;     /* horizontal alignment */
+  
+  min-height: 100vh;       /* ensure full viewport height for vertical centering */
+}
+
+.page_title {
+    color:white;
+    font-size:40px;
+}
+
+.page_text {
+    color:white;
+    font-size:24px;
+}
+
+/* buttons */
+
+.btn {
+  display: inline-block;           /* make it behave like a button */
+  padding: 10px 20px;             /* button size */
+  background-color: white;      /* button color */
+  color: black;                    /* text color */
+  text-decoration: none;           /* remove underline */
+  border-radius: 5px;              /* rounded corners */
+  border: none;                    /* remove default border */
+  font-family: Consolas, monospace; /* optional: match body font */
+  font-size: 16px;
+  cursor: pointer;                 /* mouse pointer on hover */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #C2ECFF;       /* darker on hover */
 }
