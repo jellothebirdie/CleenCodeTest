@@ -15,6 +15,10 @@ def welcome():
 def main():
     return render_template('main.html', page_title='Main Page')
 
+@app.route('/problems/')
+def problems():
+    return render_template('problems.html', page_title='Problems')
+
 @app.route('/test/', methods=['GET', 'POST'])
 def test():
     print(request.method)

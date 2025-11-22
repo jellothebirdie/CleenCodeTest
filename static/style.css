@@ -109,3 +109,37 @@ nav a:focus {
 .btn:hover {
   background-color: #C2ECFF;       /* darker on hover */
 }
+
+
+.container {
+    display: flex;              /* arrange sections side by side */
+    gap: 20px;                  /* spacing between sections */
+    justify-content: center;    /* center horizontally */
+    margin: 40px;               /* space from page edges */
+}
+
+/* Each white box */
+.section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    text-align: center;
+    width: 200px;               /* fixed width for all boxes */
+}
+
+/* Section title */
+.section h2 {
+    margin-bottom: 15px;
+}
+
+/* Clickable name inside the box */
+.section a {
+    display: inline-block;
+    padding: 8px 16px;
+    font-weight: bold;
+    border: 1.5px #012089 solid;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
