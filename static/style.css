@@ -4,12 +4,11 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+
+    font-family: Consolas, "Courier New", monospace;
 }
 
-.main_content {
-  position: relative; /* needed for z-index to take effect */
-  z-index: 1; /* above trash */
-}
+/* Trash style */
 
 .trash-container {
   position: fixed;
@@ -27,3 +26,26 @@ body {
   width: 50px;
 }
 
+/* Other */
+
+.main_content {
+  position: relative; /* for z-index */
+  z-index: 1;
+  
+  display: flex;           /* makes children flex items */
+  flex-direction: column;  /* stack vertically */
+  justify-content: center; /* vertical alignment */
+  align-items: center;     /* horizontal alignment */
+  
+  min-height: 100vh;       /* ensure full viewport height for vertical centering */
+}
+
+.page_title {
+    color:white;
+    font-size:40px;
+}
+
+.page_text {
+    color:white;
+    font-size:24px;
+}
