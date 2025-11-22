@@ -1,6 +1,33 @@
 import io
 import contextlib
 
+def execute_code(code):
+    """
+    Execute Python code and capture both printed output and return values.
+    Returns a tuple of (result, output_string)
+    """
+    f = io.StringIO()
+    namespace = {}
+    result = None
+    
+    # Capture stdout while executing the code
+    with contextlib.redirect_stdout(f):
+        exec(code, namespace)
+    
+    # Get captured output
+    output = f.getvalue()
+    
+    # Find and call the last function defined
+    functions = [obj for obj in namespace.values() if callable(obj)]
+    if functions:
+        # Call the last function and capture its return value
+        f2 = io.StringIO()
+        with contextlib.redirect_stdout(f2):
+            result = functions[-1]()
+        output += f2.getvalue()
+    
+    return result, output
+
 def get_function(input):
     f = io.StringIO()
     namespace = {}
@@ -26,9 +53,9 @@ def test_case(code, expected):
     return execute_function(code) == expected
 
 problems = {
-            "Two Sum": {"name":"Two Sum", 
-                        "function_header": "def TwoSum(List[int], target: int) -> List[int]", 
-                        "incorrect_solution":"""def (nums: List[int], target: int) -> List[int]:
+            "Two Sum": {"problem_name":"Two Sum", 
+                        "function_header": """def TwoSum(List[int], target: int) -> List[int]:""", 
+                        "incorrect_code":"""def (nums: List[int], target: int) -> List[int]:
                                                     for i in range(len(nums)):
                                                         for j in range(len(nums)):
                                                             if nums[i] + nums[j] == target:
@@ -63,12 +90,12 @@ problems = {
                                             -10,000,000 <= nums[i] <= 10,000,000
                                             -10,000,000 <= target <= 10,000,000
                                             """},
-            "Palindrome": {"name": "Palindrome", 
+            "Palindrome": {"problem_name": "Palindrome", 
                            "function_header": "def isPalindrome(s: str) -> bool", \
-                           "incorrect_solution":"""def isPalindrome(s: str) -> bool:
-                                                        s = s.lower()
-                                                        filtered = ''.join(c for c in s if c.isalpha())
-                                                        return filtered == filtered[::-1]""",
+                           "incorrect_code": """def isPalindrome(s: str) -> bool:
+                                                    s = s.lower()
+                                                    filtered = ''.join(c for c in s if c.isalpha())
+                                                    return filtered == filtered[::-1]""",
                            "description":"""Given a string s, return true if it is a palindrome, otherwise return false.
 
                                             A palindrome is a string that reads the same forward and backward. It is also case-insensitive and ignores all non-alphanumeric characters.
@@ -94,19 +121,19 @@ problems = {
                                             1 <= s.length <= 1000
                                             s is made up of only printable ASCII characters.
                                             """},
-            "Remove Node": {"name":"Remove Node",
+            "Remove Node": {"problem_name":"Remove Node",
                             "function_header": "def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:", 
-                            "incorrect_solution":"""def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
-                                                        length = 0
-                                                        current = head
-                                                        while current:
-                                                            length += 1
-                                                            current = current.next
-                                                        current = head
-                                                        for _ in range(length - n - 1):
-                                                            current = current.next
-                                                        current.next = current.next.next
-                                                        return head""",
+                            "incorrect_code":"""def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
+                                                    length = 0
+                                                    current = head
+                                                    while current:
+                                                        length += 1
+                                                        current = current.next
+                                                    current = head
+                                                    for _ in range(length - n - 1):
+                                                        current = current.next
+                                                    current.next = current.next.next
+                                                    return head""",
                             "description":   """You are given the beginning of a linked list head, and an integer n.
 
                                                 Remove the nth node from the end of the list and return the beginning of the list.

@@ -1,0 +1,27 @@
+<!-- (CleenCode) -->
+<!-- HTML template for problem page -->
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1 class="page_title">{{ problem_name }}</h1>
+
+<span class="page_text">
+    <label> 
+        Incorrect Solution:
+        <p>
+            <pre><code>
+                {{ incorrect_code }}
+            </code></pre>
+        </p>
+    </label>
+    <form method="post">
+        <textarea id="code" name="code" rows="5" cols="50">{{ incorrect_code }}</textarea>
+        </label>
+        <p></p>
+        <input type="submit" value="submit">
+    </form>
+</span>
+
+{% endblock %}
