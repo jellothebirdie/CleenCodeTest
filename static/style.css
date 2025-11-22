@@ -86,7 +86,7 @@ nav a:focus {
   align-items: center;     /* horizontal alignment */
   
   min-height: 100vh;       /* ensure full viewport height for vertical centering */
-  transform: translateY(-175px);
+  transform: translateY(-25vh);
 }
 
 .page_title {
