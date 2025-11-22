@@ -17,12 +17,14 @@ def main():
 
 @app.route('/test/', methods=['GET', 'POST'])
 def test():
+    print(request.method)
     if request.method == 'GET':
         # if GET, send blank form
         return render_template('test.html', page_title='Test')
 
     else:
         code = request.form.get('code')
+        print('code')
         try:
             result = m.get_function(code)
             output = m.execute_function(result)

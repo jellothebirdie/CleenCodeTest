@@ -1,16 +1,28 @@
-<!-- (ShitCode) -->
-<!-- HTML template for test page -->
+<!-- (CleenCode) -->
+<!-- HTML template for problem page -->
 
 {% extends "base.html" %}
 
 {% block main_content %}
 
-<h1>Main</h1>
+<h1>Two Sum</h1>
+<label> 
+    Incorrect Solution:
+    <p>
+        <pre><code>
+            {% raw %}
+            def twoSum(nums, target):
+                for i in range(len(nums)):
+                    for j in range(len(nums)):
+                        if nums[i] + nums[j] == target:
+                            return [i, j]
+            {% endraw %}
+        </code></pre>
+    </p>
+</label>
 <form method="post" action="/test/">
-    <label>your code here:
-        <p></p>
-        <textarea id="code" name="code" rows="5" cols="50">def test():
-    return </textarea>
+    <textarea id="code" name="code" rows="5" cols="50">def test(): 
+    return 67</textarea>
     </label>
     <p></p>
     <input type="submit" value="submit">
