@@ -4,10 +4,23 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel='stylesheet' href="{{ url_for('static', filename='style.css') }}">
 
     {% block head_stuff %}{% endblock %}
 </head>
+
+<nav>
+  <ul>
+    <li><a href="{{ url_for('welcome') }}">Welcome</a></li>
+    <li><a href="{{ url_for('main') }}">Main</a></li>
+    <li><a href="{{ url_for('test') }}">Test</a></li>
+    <li><a href="{{ url_for('problems') }}">Problems</a></li>
+  </ul>
+</nav>
+
 
 <body>
 
