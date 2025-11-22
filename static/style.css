@@ -1,3 +1,8 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
     background-image: linear-gradient(to bottom, #4A6CDD, #012089);
     background-size: cover;
@@ -29,12 +34,15 @@ body {
 /* Other */
 
 .header-image {
-  position: fixed;   /* sticks to viewport */
+  position: sticky;   /* sticks to viewport */
   top: 0;            /* at top */
   left: 0;           /* start from left edge */
   width: 100%;       /* cover full width */
   height: auto;      /* maintain aspect ratio */
   z-index: 2;     /* above other content */
+  transition: opacity 0.3s ease;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul {
@@ -78,6 +86,7 @@ nav a:focus {
   align-items: center;     /* horizontal alignment */
   
   min-height: 100vh;       /* ensure full viewport height for vertical centering */
+  transform: translateY(-175px);
 }
 
 .page_title {
