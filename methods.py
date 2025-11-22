@@ -53,7 +53,8 @@ def test_case(code, expected):
     return execute_function(code) == expected
 
 problems = {
-            "Two Sum": {"problem_name":"Two Sum", 
+            "Two Sum": {"level":1,
+                        "problem_name":"Two Sum", 
                         "function_header": """def TwoSum(List[int], target: int) -> List[int]:""", 
                         "incorrect_code":
 """

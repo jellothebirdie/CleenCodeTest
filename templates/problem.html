@@ -5,31 +5,17 @@
 
 {% block main_content %}
 
-<p style="margin-top: 130px;"><h1 class="page_title">{{ problem_name }}</h1></p>
+<p style="margin-top: 130px;"><h1 class="page_title">{{ data['problem_name'] }}</h1></p>
 
 <span class="page_text">
     <label> 
         Incorrect Solution:
         <p>
             <pre><code>
-                {{ incorrect_code }}
+                {{ data['incorrect_code'] }}
             </code></pre>
         </p>
     </label>
-    <form method="post" action="/test/" id="codeForm">
-        <div class="editor-container">
-            <pre id="highlight-layer"><code id="highlight-code"></code></pre>
-            <textarea id="code" name="code" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
-                {{ incorrect_code }}
-            </textarea>
-        </div>
-        <button type="button" id="testBtn" class="btn" style="margin-top: 10px;">Test</button>
-        <div id="console-box" class="console-box">
-            <div class="console-header">Console Output</div>
-            <div id="console-output" class="console-output"></div>
-            <button type="button" id="clearBtn" class="console-btn">Clear</button>
-        </div>
-    </form>
 </span>
 
 {% endblock %}
