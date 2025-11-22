@@ -19,7 +19,9 @@
     <form method="post" action="/test/" id="codeForm">
         <div class="editor-container">
             <pre id="highlight-layer"><code id="highlight-code"></code></pre>
-            <textarea id="code" name="code" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+            <textarea id="code" name="code" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
+                {{ incorrect_code }}
+            </textarea>
         </div>
         <button type="button" id="testBtn" class="btn" style="margin-top: 10px;">Test</button>
         <div id="console-box" class="console-box">
