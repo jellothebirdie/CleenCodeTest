@@ -1,0 +1,20 @@
+<!-- (ShitCode) -->
+<!-- HTML template for test page -->
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1>Main</h1>
+<form method="post" action="/test/">
+    <label>your code here:
+        <p></p>
+        <textarea id="code" name="code" rows="5" cols="50">def test():
+    return
+        </textarea>
+    </label>
+    <p></p>
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}
