@@ -56,13 +56,12 @@ problems = {
             "Two Sum": {"problem_name":"Two Sum", 
                         "function_header": """def TwoSum(List[int], target: int) -> List[int]:""", 
                         "incorrect_code":
-                        """
+"""
 def (nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
         for j in range(len(nums)):
             if nums[i] + nums[j] == target:
-                return [i, j]
-                """,
+                return [i, j]""",
                         "description":   """Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
 
                                             You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
@@ -96,12 +95,10 @@ def (nums: List[int], target: int) -> List[int]:
             "Palindrome": {"problem_name": "Palindrome", 
                            "function_header": "def isPalindrome(s: str) -> bool", \
                            "incorrect_code": 
-                           """
-def isPalindrome(s: str) -> bool:
+"""def isPalindrome(s: str) -> bool:
     s = s.lower()
     filtered = ''.join(c for c in s if c.isalpha())
-    return filtered == filtered[::-1]
-    """,
+    return filtered == filtered[::-1]""",
                            "description":"""Given a string s, return true if it is a palindrome, otherwise return false.
 
                                             A palindrome is a string that reads the same forward and backward. It is also case-insensitive and ignores all non-alphanumeric characters.
@@ -130,8 +127,8 @@ def isPalindrome(s: str) -> bool:
             "Remove Node": {"problem_name":"Remove Node",
                             "function_header": "def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:", 
                             "incorrect_code":
-                            """
-def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
+                            
+"""def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
     length = 0
     current = head
     while current:
@@ -141,8 +138,7 @@ def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
     for _ in range(length - n - 1):
         current = current.next
     current.next = current.next.next
-    return head
-    """,
+    return head""",
                             "description":   """You are given the beginning of a linked list head, and an integer n.
 
                                                 Remove the nth node from the end of the list and return the beginning of the list.

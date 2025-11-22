@@ -11,10 +11,6 @@ app.secret_key = "changethis"
 def welcome():
     return render_template('welcome.html', page_title='Welcome Page')
 
-@app.route('/main/')
-def main():
-    return render_template('main.html', page_title='Main Page')
-
 @app.route('/problems/')
 def problems():
     return render_template('problems.html', page_title='Problems')
