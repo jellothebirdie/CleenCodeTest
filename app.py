@@ -19,6 +19,24 @@ def main():
 def problems():
     return render_template('problems.html', page_title='Problems')
 
+@app.route('/problem/<problem_name>', methods=['GET', 'POST'])
+def problem(problem_name):
+    print(m.problems.keys())
+    p = m.problems[problem_name]
+    if request.method == 'GET':
+        # if GET, send blank form
+        return render_template('problem.html', 
+                               page_title=problem_name, 
+                               problem_name=problem_name,
+                               incorrect_code=p['incorrect_code'])
+    else:
+        print('put')
+        # need to implement as with test
+        return render_template('problem.html', 
+                               page_title=problem_name, 
+                               problem_name=problem_name,
+                               incorrect_code=p['incorrect_code'])
+
 @app.route('/test/', methods=['GET', 'POST'])
 def test():
     print(request.method)

@@ -26,22 +26,22 @@ def test_case(code, expected):
     return execute_function(code) == expected
 
 problems = {
-            "Two Sum": {"name":"Two Sum", 
-                        "function_header": "def TwoSum(List[int], target: int) -> List[int]", 
-                        "incorrect_solution":"""def (nums: List[int], target: int) -> List[int]:
+            "Two Sum": {"problem_name":"Two Sum", 
+                        "function_header": """def TwoSum(List[int], target: int) -> List[int]:""", 
+                        "incorrect_code":"""def (nums: List[int], target: int) -> List[int]:
                                                     for i in range(len(nums)):
                                                         for j in range(len(nums)):
                                                             if nums[i] + nums[j] == target:
                                                                 return [i, j]"""},
-            "Palindrome": {"name": "Palindrome", 
-                           "function_header": "def isPalindrome(s: str) -> bool", \
-                            "incorrect_solution":"""def isPalindrome(s: str) -> bool:
+            "Palindrome": {"problem_name": "Palindrome", 
+                           "function_header": """def isPalindrome(s: str) -> bool""", \
+                            "incorrect_code":"""def isPalindrome(s: str) -> bool:
                                                         s = s.lower()
                                                         filtered = ''.join(c for c in s if c.isalpha())
                                                         return filtered == filtered[::-1]"""},
-            "Remove Node": {"name":"Remove Node",
-                            "function_header": "def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:", 
-                            "incorrect_solution":"""def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
+            "Remove Node": {"problem_name":"Remove Node",
+                            "function_header": """def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:""", 
+                            "incorrect_code":"""def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
                                                         length = 0
                                                         current = head
                                                         while current:
