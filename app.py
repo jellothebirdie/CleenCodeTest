@@ -8,7 +8,11 @@ app = Flask(__name__)
 app.secret_key = "changethis"
 
 @app.route('/')
-def index():
+def welcome():
+    return render_template('welcome.html', page_title='Welcome Page')
+
+@app.route('/main/')
+def main():
     return render_template('main.html', page_title='Main Page')
 
 @app.route('/test/', methods=['GET', 'POST'])
