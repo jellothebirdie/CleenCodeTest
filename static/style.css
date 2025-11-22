@@ -49,3 +49,21 @@ body {
     color:white;
     font-size:24px;
 }
+
+.btn {
+  display: inline-block;           /* make it behave like a button */
+  padding: 10px 20px;             /* button size */
+  background-color: white;      /* button color */
+  color: black;                    /* text color */
+  text-decoration: none;           /* remove underline */
+  border-radius: 5px;              /* rounded corners */
+  border: none;                    /* remove default border */
+  font-family: Consolas, monospace; /* optional: match body font */
+  font-size: 16px;
+  cursor: pointer;                 /* mouse pointer on hover */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #C2ECFF;       /* darker on hover */
+}
