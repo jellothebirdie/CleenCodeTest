@@ -134,6 +134,12 @@ nav a:focus {
     margin: 40px;               /* space from page edges */
 }
 
+.topbuttons {
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
 /* Each white box */
 .section {
     background: white;
