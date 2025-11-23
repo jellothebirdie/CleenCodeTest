@@ -132,25 +132,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create popup content
         const popup = document.createElement('div');
         popup.id = 'success-popup';
-        popup.style.cssText = 'background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 500px; position: relative;';
         
         // Add GIF
         const gif = document.createElement('img');
         gif.src = '/static/images/win.gif'; 
         gif.style.cssText = 'max-width: 100%; height: auto;';
-         
-        // Add close button
-        const closeBtn = document.createElement('button');
-        closeBtn.textContent = 'Close';
-        closeBtn.className = 'btn-container';
-        closeBtn.style.cssText = 'margin-top: 20px; cursor: pointer;';
-        closeBtn.onclick = function() {
-            document.body.removeChild(overlay);
-        };
         
         // Assemble popup
         popup.appendChild(gif);
-        popup.appendChild(closeBtn);
         overlay.appendChild(popup);
         
         // Add to page
