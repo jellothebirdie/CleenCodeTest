@@ -240,14 +240,6 @@ nav a:focus {
     margin: 40px 0;               /* space from page edges */
 }
 
-.container > div {
-  display: flex;
-  flex-direction: column;     /* Stack section and button vertically */
-  align-items: center;        /* Center items horizontally */
-  gap: 10px;                  /* Space between section and button */
-  width: fit-content;
-}
-
 .section {
     background: #00178A;
     padding: 10px 50px;
@@ -473,4 +465,5 @@ line-height: 1.2;  /* Tighter line height */
   border-radius: 5px;
   box-sizing: border-box;
 }
+
 
