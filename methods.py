@@ -99,7 +99,27 @@ Example 3:
 Input: nums = [5,5], target = 10
 
 Output: [0,1]
+""",
+"tests": """
+[
+    {
+      "input": {
+        "nums": [2, 7, 11, 15],
+        "target": 9
+      },
+      "output": [0, 1]
+    },
+    {
+      "input": {
+        "nums": [3, 2, 4],
+        "target": 6
+      },
+      "output": [1, 2]
+    }
+]
 """},
+
+
             "Palindrome": {"problem_name": "Palindrome", 
                            "function_header": "def isPalindrome(s: str) -> bool", \
                            "incorrect_code": 
@@ -137,7 +157,72 @@ Input: s = "tab a cat"
 
 Output: false
 Explanation: "tabacat" is not a palindrome.
-"""},
+""",
+"tests":
+[
+    {
+      "input": { "s": "A man, a plan, a canal: Panama" },
+      "output": True,
+    },
+    {
+      "input": { "s": "race a car" },
+      "output": False,
+    },
+    {
+      "input": { "s": "" },
+      "output": True,
+    },
+    {
+      "input": { "s": " " },
+      "output": True,
+    },
+    {
+      "input": { "s": "0P" },
+      "output": False,
+    },
+    {
+      "input": { "s": "abba" },
+      "output": True,
+    },
+    {
+      "input": { "s": "abcba" },
+      "output": True,
+    },
+    {
+      "input": { "s": "No 'x' in Nixon" },
+      "output": True,
+    },
+    {
+      "input": { "s": ".,," },
+      "output": True,
+    },
+    {
+      "input": { "s": "a." },
+      "output": True,
+    },
+    {
+      "input": { "s": "Àbbà" },
+      "output": False,
+    },
+    {
+      "input": { "s": "åböbå" },
+      "output": True,
+    },
+    {
+      "input": { "s": "123321" },
+      "output": True,
+    },
+    {
+      "input": { "s": "123421" },
+      "output": False,
+    },
+    {
+      "input": { "s": "Able was I ere I saw Elba" },
+      "output": True,
+    }
+  ]
+},
+
 
             "Remove Node": {"problem_name":"Remove Node",
                             "function_header": "def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:", 
