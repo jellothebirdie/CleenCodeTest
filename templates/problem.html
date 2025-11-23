@@ -63,7 +63,7 @@
               <p>{{ input_name }} = {{ input_value }}</p> <!-- display test case inputs -->
               <p>Expecting: {{ test['expected'] }}</p>    <!-- display expected outputs -->
               <p>Result: {{ test['actual'] }}</p>         <!-- display actual outputs -->
-              {% if test['expected'] == test['actual'] %} <!-- display pass/fail -->
+              {% if test['passed'] %}                      <!-- display pass/fail -->
                 <h4>PASSED</h4>
               {% else %}
                 <h4>FAILED</h4>
