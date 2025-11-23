@@ -134,79 +134,84 @@ nav a:focus {
 
 /* buttons */
 
-.btn {
+.btn-container {
   display: inline-block;           /* make it behave like a button */
-  padding: 20px 80px;             /* button size */
+  padding: 10px 50px;             /* button size */
   background-color: white;      /* button color */
-  color: black;                    /* text color */
+  color: white;                    /* text color */
   text-decoration: none;           /* remove underline */
   border-radius: 5px;              /* rounded corners */
   border: none;                    /* remove default border */
   font-family: K2D, sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   cursor: pointer;                 /* mouse pointer on hover */
   transition: background-color 0.3s ease;
+  min-width: 180px;
+  width: 250px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.btn:hover {
+.btn-welcome {
+  background-color: white;
+  color: #00178A;
+}
+
+.btn-welcome:hover {
+  background-color: #C2ECFF;
+  color: #53A4F5;
+}
+
+.btn-container:hover {
   background-color: #C2ECFF;       /* darker on hover */
 }
 
+.btn-problems {
+  background-color: #53A4F5;
+}
+
+.btn-problems:hover {
+  color: #00178A;
+}
+
+.topbuttons {
+  margin-top: 20px;
+  margin-left: 20px;
+}
 
 .container {
     display: flex;              /* arrange sections side by side */
     gap: 20px;                  /* spacing between sections */
     justify-content: center;    /* center horizontally */
-    margin: 40px;               /* space from page edges */
+    margin: 40px 0;               /* space from page edges */
 }
 
-.topbuttons {
-    margin-top: 20px;
-    margin-left: 20px;
-
+.container > div {
+  display: flex;
+  flex-direction: column;     /* Stack section and button vertically */
+  align-items: center;        /* Center items horizontally */
+  gap: 10px;                  /* Space between section and button */
+  width: fit-content;
 }
 
-.test{
-  display: inline-block;           /* make it behave like a button */
-  text-decoration: none;           /* remove underline */
-  border-radius: 5px;              /* rounded corners */
-  border: none;                    /* remove default border */
-  font-family: K2D, sans-serif;
-  cursor: pointer;                 /* mouse pointer on hover */
-  transition: background-color 0.3s ease;
-  padding: 10px 30px;             /* button size */
-  background-color: white;      /* button color */
-  color: black;                    /* text color */
-  font-size: 18px;
-  margin: 12px;
-}
-
-/* Each white box */
 .section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    background: #00178A;
+    padding: 10px 50px;
+    border-radius: 5px;
     text-align: center;
-    width: 200px;               /* fixed width for all boxes */
-}
-
-/* Section title */
-.section h2 {
-    margin-bottom: 15px;
-}
-
-/* Clickable name inside the box */
-.section a {
+    color: white;
+    width: 250px;
     display: inline-block;
-    padding: 8px 16px;
-    font-weight: bold;
-    border: 1.5px #012089 solid;
-    text-decoration: none;
-    transition: background 0.3s;
+    box-sizing: border-box;
+    min-width: 180px;
 }
 
-
+.section h2 {
+  margin: 0;  /* Remove default h2 margins */
+  padding: 0;  /* Remove default padding */
+  font-size: 24px;  /* Match button font size if needed */
+  line-height: 1.2;  /* Tighter line height */
+}
 
 /* Editor styles */
 .editor-container {
