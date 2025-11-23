@@ -38,11 +38,14 @@ problems = {
                         "function_header": """def TwoSum(List[int], target: int) -> List[int]:""", 
                         "incorrect_code":
 """
-def (nums: List[int], target: int) -> List[int]:
+from typing import List
+
+def twoSum(nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
         for j in range(len(nums)):
             if nums[i] + nums[j] == target:
-                return [i, j]""",
+                return [i, j]
+""",
                         "description":   
 """
 Given an array of integers nums and an integer target, return the 
