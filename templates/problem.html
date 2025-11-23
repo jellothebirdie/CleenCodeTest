@@ -24,16 +24,27 @@
 </div>
 <p></p>
 <div class="problem_container">
+
   <div>
     <form method=POST action="">
       <label for="code">Your Code Here:</label> 
       <p>
-        <textarea id="code" name="code">{{ data['incorrect_code'][1:] }}</textarea>
+        <!-- <textarea id="code" name="code">{{ data['incorrect_code'][1:] }}</textarea> -->
+         <div class="editor-container">
+            <pre id="highlight-layer"><code id="highlight-code"></code></pre>
+            <textarea id="code" name="code" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">{{ data['incorrect_code'] }}</textarea>
+            <input type="submit" name="test" value="Test">
+        </div>
       </p>
-      <input class="btn" type="submit" name="submit" value="Submit">
   </form>
   </div>
-  
+
+  <!-- output of test cases -->
+  <div>
+    <label for="code">Test Cases:</label>
+    
+  </div>
+
 </div>
 
 {% endblock %}

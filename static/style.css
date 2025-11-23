@@ -293,6 +293,7 @@ margin-top:10px;
   flex: 1;                  /* Each child div takes up equal width */
   background: #f2f2f2;      /* Optional styling */
   padding: 20px;
+  width:100%;
   box-sizing: border-box;
   background: #012189ab;
   font-family: K2D, sans-serif !important;
@@ -301,18 +302,15 @@ margin-top:10px;
 
 .problem_container textarea {
   flex: 1;
-  background: #C2ECFF !important;
+  width:100%;
   padding: 20px;
   box-sizing: border-box;
-  color: black !important;
   height:300px;
-}
-
-
-textarea, .code {
-    font-family: monospace !important;
 }
 
 pre {
     font-family: K2D, sans-serif;
+}
+textarea{
+    width:100%;
 }
