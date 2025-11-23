@@ -178,11 +178,6 @@ nav a:focus {
   color: #00178A;
 }
 
-.topbuttons {
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
 .btn-back {
   background-color: white;
   color: #00178A;
@@ -194,6 +189,22 @@ nav a:focus {
   background-color: #C2ECFF;
   color: #53A4F5;
 }
+
+.btn-test {
+  background-color: #53A4F5;
+  color: #00178A;
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  font-size: 18px;
+  padding: 0;
+}
+
+.btn-test:hover {
+  background-color: #C2ECFF;
+  color: #53A4F5;
+}
+
 .container {
     display: flex;              /* arrange sections side by side */
     gap: 20px;                  /* spacing between sections */
