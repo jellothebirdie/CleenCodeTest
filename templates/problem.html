@@ -10,11 +10,13 @@
 
 <div class="problem_container">
   <div>
+    <h2>Description</h2>
     <pre>
         {{ data['description'] }}
     </pre>
   </div>
   <div>
+    <h2>Incorrect Solution</h2>
     <pre>
         {{ data['incorrect_code'] }}
     </pre>
@@ -24,8 +26,8 @@
 <span class="page_text">
     <label> 
         <p>
-            <textarea>
-                {{ data['incorrect_code'] }}
+            <textarea class="problem_container">
+                {{ data['incorrect_code'][1:] }}
             </textarea>
         </p>
     </label>
