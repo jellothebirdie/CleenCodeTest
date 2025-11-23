@@ -42,26 +42,26 @@
   <label for="code">Test Cases:</label>
   
   <!-- scrollable container -->
-  <div style="max-height: 400px; overflow-y: auto; padding: 10px; border-radius: 10px; background: linear-gradient(to bottom, #4A6CDD, #012089);; border: 2px solid #012089;">
+  <div style="max-height: 400px; overflow-y: auto; padding: 10px; border-radius: 10px">
     <ol style="list-style: none; padding: 0; margin: 0;">
       
       {% for test in tests %}
         {% if 'output' in test.keys() %}
           <!-- Example Test Cases -->
-          <li style="border: 1px solid black; border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #c2ecffa9;">
+          <li style="border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #53A4F5;">
             {% for input_name, input_value in test['input'].items() %}
-              <p style="color:black"><strong>{{ input_name }} =</strong> {{ input_value }}</p>
+              <p style="color:white; font-family: Consolata, sans-serif;"><strong>{{ input_name }} =</strong> {{ input_value }}</p>
             {% endfor %}
-            <p style="color:black"><strong>expected =</strong> {{ test['output'] }}</p>
+            <p style="color:white; font-family: Consolata, sans-serif;"><strong>expected =</strong> {{ test['output'] }}</p>
           </li>
         {% else %}
           <!-- User-submitted Test Cases -->
-          <li style="border: 1px solid black; border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #c2ecffa9;">
+          <li style="border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #53A4F5;">
             {% for input_name, input_value in test['input'].items() %}
-              <p style="color:black"><strong>{{ input_name }} =</strong> {{ input_value }}</p>
+              <p style="color:white; font-family: Consolata, sans-serif;"><strong>{{ input_name }} =</strong> {{ input_value }}</p>
             {% endfor %}
-            <p style="color:black"><strong>expected =</strong> {{ test['expected'] }}</p>
-            <p style="color:black"><strong>result =</strong> {{ test['actual'] }}</p>
+            <p style="color:white; font-family: Consolata, sans-serif;"><strong>expected =</strong> {{ test['expected'] }}</p>
+            <p style="color:white; font-family: Consolata, sans-serif;"><strong>result =</strong> {{ test['actual'] }}</p>
             {% if test['passed'] %}
               <h4 style="color: green; margin: 5px 0;">PASSED</h4>
             {% else %}

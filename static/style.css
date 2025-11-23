@@ -223,9 +223,10 @@ nav a:focus {
   color: #00178A;
   width: 100px;
   height: 30px;
-  margin: 10px;
+  margin: 10px auto;
   font-size: 18px;
   padding: 0;
+  display: block;
 }
 
 .btn-test:hover {
@@ -263,7 +264,6 @@ nav a:focus {
 .editor-container {
   position: relative;
   font-size: 14px;
-  border: 2px solid #555;
   border-radius: 5px;
   overflow: hidden;
   background: #1e1e1e;
@@ -312,64 +312,6 @@ nav a:focus {
 .comment { color: #53A4F5; }
 .number { color: #C2ECFF; }
 .function { color: #53A4F5; }
-
-/* Console styles */
-.console-box {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 15px;
-  border: 2px solid #012089;
-  border-radius: 5px;
-  background: #C2ECFF;
-  overflow: hidden;
-}
-
-.console-header {
-  background: #333;
-  color: #ddd;
-  padding: 8px 10px;
-  font-weight: bold;
-  font-size: 13px;
-  border-bottom: 1px solid #555;
-}
-
-.console-output {
-  background: #0d0d0d;
-  color: #00ff00;
-  padding: 10px;
-  min-height: 100px;
-  max-height: 250px;
-  overflow-y: auto;
-  font-size: 12px;
-  line-height: 1.4;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.console-btn {
-  display: inline-block;
-  padding: 6px 12px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  font-size: 12px;
-  cursor: pointer;
-  margin: 8px 10px 8px 8px;
-  transition: background-color 0.2s ease;
-}
-
-.console-btn:hover {
-  background-color: #777;
-}
-
-.console-error {
-  color: #ff6b6b;
-}
-
-.console-log {
-  color: #00ff00;
-}
 
 /* problem description & incorrect solution */
 
