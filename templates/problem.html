@@ -10,20 +10,23 @@
 
 <div class="problem_container">
   <div>
-    Left column content
+    <pre>
+        {{ data['description'] }}
+    </pre>
   </div>
   <div>
-    Right column content
+    <pre>
+        {{ data['incorrect_code'] }}
+    </pre>
   </div>
 </div>
 
 <span class="page_text">
     <label> 
-        Incorrect Solution:
         <p>
-            <pre><code>
+            <textarea>
                 {{ data['incorrect_code'] }}
-            </code></pre>
+            </textarea>
         </p>
     </label>
 </span>

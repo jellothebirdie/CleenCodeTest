@@ -294,6 +294,7 @@ nav a:focus {
 
 .problem_container > div {
   flex: 1;                  /* Each child div takes up equal width */
+  width:30%;
   background: #f2f2f2;      /* Optional styling */
   padding: 20px;
   box-sizing: border-box;
