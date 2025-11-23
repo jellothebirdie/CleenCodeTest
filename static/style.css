@@ -152,12 +152,26 @@ nav a:focus {
   box-sizing: border-box;
 }
 
+.btn-welcome {
+  background-color: white;
+  color: #00178A;
+}
+
+.btn-welcome:hover {
+  background-color: #C2ECFF;
+  color: #53A4F5;
+}
+
 .btn-container:hover {
   background-color: #C2ECFF;       /* darker on hover */
 }
 
 .btn-problems {
   background-color: #53A4F5;
+}
+
+.btn-problems:hover {
+  color: #00178A;
 }
 
 .topbuttons {
