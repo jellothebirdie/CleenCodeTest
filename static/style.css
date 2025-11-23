@@ -251,6 +251,10 @@ nav a:focus {
   right: 0;
 }
 
+.btn-resultp:hover {
+  background-color: white ;
+}
+
 .btn-resultf {
   font-size: 18px;
   background-color: white ;
@@ -261,6 +265,10 @@ nav a:focus {
   margin: 5px 0 ;
   position: relative;
   right: 0;
+}
+
+.btn-resultf:hover {
+  background-color: white ;
 }
 
 .container {
