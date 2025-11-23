@@ -157,6 +157,21 @@ nav a:focus {
 
 }
 
+.test{
+  display: inline-block;           /* make it behave like a button */
+  text-decoration: none;           /* remove underline */
+  border-radius: 5px;              /* rounded corners */
+  border: none;                    /* remove default border */
+  font-family: K2D, sans-serif;
+  cursor: pointer;                 /* mouse pointer on hover */
+  transition: background-color 0.3s ease;
+  padding: 10px 30px;             /* button size */
+  background-color: white;      /* button color */
+  color: black;                    /* text color */
+  font-size: 18px;
+  margin: 12px;
+}
+
 /* Each white box */
 .section {
     background: white;
