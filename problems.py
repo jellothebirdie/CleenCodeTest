@@ -1,4 +1,3 @@
-
 problems = {
             "Two Sum": {"level":1,
                         "problem_name":"Two Sum", 
@@ -163,43 +162,92 @@ Explanation: "tabacat" is not a palindrome.
 },
 
 
-            "Remove Node": {"problem_name":"Remove Node",
-                            "function_header": "def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:", 
-                            "incorrect_code":             
+            "Rain Water": {"problem_name":"Rain Water",
+                           "function_header": "def trap(self, height: List[int]) -> int:", 
+                           "incorrect_code":             
 """
-def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
-    length = 0
-    current = head
-    while current:
-        length += 1
-        current = current.next
-    current = head
-    for _ in range(length - n - 1):
-        current = current.next
-    current.next = current.next.next
-    return head""",
+def trap(height):
+    water = 0
+    max_left = 0
+    for i in range(len(height)):
+        if height[i] > max_left:
+            max_left = height[i]
+        water += max_left - height[i]  # ignores right boundary
+    return water""",
                             "description":
 """
-You are given the beginning of a linked list head, and an integer n.
+You are given an array of non-negative integers height which represent an elevation map. 
+Each value height[i] represents the height of a bar, which has a width of 1.
 
-Remove the nth node from the end of the list and return the beginning of the list.
+Return the maximum area of water that can be trapped between the bars.
 """,
             "examples":
             """
-Example 1:
+Input: height = [0,2,0,3,1,0,1,3,2,1]
 
-Input: head = [1,2,3,4], n = 2
-
-Output: [1,2,4]
-Example 2:
-
-Input: head = [5], n = 1
-
-Output: []
-Example 3:
-
-Input: head = [1,2], n = 2
-
-Output: [2]
-"""}
+Output: 9
+""",
+            "tests":
+[
+    {
+      "input": { "height": [0,1,0,2,1,0,1,3,2,1,2,1] },
+      "output": 6,
+      "description": "classic example with multiple pits"
+    },
+    {
+      "input": { "height": [] },
+      "output": 0,
+      "description": "empty array, no water trapped"
+    },
+    {
+      "input": { "height": [0,0,0,0] },
+      "output": 0,
+      "description": "all zeros, no water trapped"
+    },
+    {
+      "input": { "height": [1,2,3,4,5] },
+      "output": 0,
+      "description": "strictly increasing heights"
+    },
+    {
+      "input": { "height": [5,4,3,2,1] },
+      "output": 0,
+      "description": "strictly decreasing heights"
+    },
+    {
+      "input": { "height": [2,0,2] },
+      "output": 2,
+      "description": "single pit"
+    },
+    {
+      "input": { "height": [3,0,1,3,0,5] },
+      "output": 8,
+      "description": "multiple pits of different heights"
+    },
+    {
+      "input": { "height": [4,2,0,3,2,5] },
+      "output": 9,
+      "description": "complex pit arrangement"
+    },
+    {
+      "input": { "height": [1,0,2,1,0,1,3] },
+      "output": 5,
+      "description": "nested pits"
+    },
+    {
+      "input": { "height": [1] },
+      "output": 0,
+      "description": "single bar, no water trapped"
+    },
+    {
+      "input": { "height": [1,2] },
+      "output": 0,
+      "description": "two bars, no water trapped"
+    },
+    {
+      "input": { "height": [2,1,2] },
+      "output": 1,
+      "description": "small pit between two higher bars"
+    }
+  ]}
 }
