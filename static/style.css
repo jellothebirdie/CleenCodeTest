@@ -146,8 +146,6 @@ nav a:focus {
   font-size: 24px;
   cursor: pointer;                 /* mouse pointer on hover */
   transition: background-color 0.3s ease;
-  min-width: 180px;
-  width: 250px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -155,6 +153,9 @@ nav a:focus {
 .btn-welcome {
   background-color: white;
   color: #00178A;
+  min-width: 180px;
+  width: 250px;
+  
 }
 
 .btn-welcome:hover {
@@ -168,6 +169,9 @@ nav a:focus {
 
 .btn-problems {
   background-color: #53A4F5;
+  min-width: 180px;
+  width: 250px;
+  
 }
 
 .btn-problems:hover {
@@ -179,6 +183,17 @@ nav a:focus {
   margin-left: 20px;
 }
 
+.btn-back {
+  background-color: white;
+  color: #00178A;
+  padding: 10px 20px;
+
+}
+
+.btn-back:hover {
+  background-color: #C2ECFF;
+  color: #53A4F5;
+}
 .container {
     display: flex;              /* arrange sections side by side */
     gap: 20px;                  /* spacing between sections */
@@ -360,3 +375,4 @@ pre {
 textarea{
     width:100%;
 }
+
