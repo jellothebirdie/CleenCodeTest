@@ -74,7 +74,7 @@ Input: nums = [5,5], target = 10
 
 Output: [0,1]
 """,
-"tests": """
+"tests":
 [
     {
       "input": {
@@ -91,7 +91,7 @@ Output: [0,1]
       "output": [1, 2]
     }
 ]
-"""},
+},
 
 
             "Palindrome": {"problem_name": "Palindrome", 
