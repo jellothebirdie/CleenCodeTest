@@ -283,7 +283,7 @@ nav a:focus {
 
 .problem_container {
 margin-top:10px;
-  width: 100%;               /* Take up 75% of screen */
+  width: 1200px;               /* Take up 75% of screen */
   margin: 0 auto;           /* Center it horizontally */
   display: flex;            /* Enable side-by-side layout */
   gap: 10px;                /* Optional spacing between columns */
