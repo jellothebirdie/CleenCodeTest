@@ -67,7 +67,6 @@ def problem(problem_slug):
                 complete = session.get('complete', {})
                 complete[problem_name] = True
                 session['complete'] = complete
-
             return jsonify({"tests": test_results, "all_passed": num_passed == len(test_results)})
 
         except Exception as e:

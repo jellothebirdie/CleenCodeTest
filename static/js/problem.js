@@ -62,10 +62,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.tests && data.tests.length > 0) {
                     // Update test cases section
                     updateTestCases(data.tests);
+                    
+                    // Check if all tests passed
+                    if (data.all_passed) {
+                        showSuccessPopup();
+                    }
                 } else {
                     // If no tests, show error message
                     alert(data.error || 'Unable to run tests');
                 }
+                
             } catch (error) {
                 console.error(error);
                 // Show error but don't break the page
@@ -115,5 +121,53 @@ document.addEventListener('DOMContentLoaded', function() {
             li.innerHTML = html;
             ol.appendChild(li);
         });
+    }
+
+    function showSuccessPopup() {
+        // Create popup overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'success-popup-overlay';
+        overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; justify-content: center; align-items: center;';
+        
+        // Create popup content
+        const popup = document.createElement('div');
+        popup.id = 'success-popup';
+        popup.style.cssText = 'background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 500px; position: relative;';
+        
+        // Add GIF
+        const gif = document.createElement('img');
+        gif.src = '/static/images/win.gif'; 
+        gif.style.cssText = 'max-width: 100%; height: auto;';
+         
+        // Add close button
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = 'Close';
+        closeBtn.className = 'btn-container';
+        closeBtn.style.cssText = 'margin-top: 20px; cursor: pointer;';
+        closeBtn.onclick = function() {
+            document.body.removeChild(overlay);
+        };
+        
+        // Assemble popup
+        popup.appendChild(gif);
+        popup.appendChild(closeBtn);
+        overlay.appendChild(popup);
+        
+        // Add to page
+        document.body.appendChild(overlay);
+        
+        // Close on overlay click (outside popup)
+        overlay.onclick = function(e) {
+            if (e.target === overlay) {
+                document.body.removeChild(overlay);
+            }
+        };
+        
+        // Auto-close after 5 seconds (optional)
+        setTimeout(() => {
+            if (document.body.contains(overlay)) {
+                document.body.removeChild(overlay);
+            }
+        }, 10000);
     }
 });
