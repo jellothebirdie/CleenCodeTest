@@ -3,8 +3,8 @@
 <ul>
     <li> Nina Howley '27
     <li> Dianna Gonzalez '27
-    <li> Jessica Chen '27
-    <li> Cindy Li '27
+    <li> Jessica Chen '28
+    <li> Cindy Li '28
 </ul>
 
 ___
