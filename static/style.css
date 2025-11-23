@@ -424,4 +424,14 @@ line-height: 1.2;  /* Tighter line height */
   box-sizing: border-box;
 }
 
-
+.footer {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-family: K2D, sans-serif;
+  padding: 10px 0;
+}
