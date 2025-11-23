@@ -17,6 +17,7 @@ def problems():
 
 @app.route('/problem/<problem_name>', methods=['GET', 'POST'])
 def problem(problem_name):
+    print("SESSION AT START:", session.get('complete'))
     data = m.problems[problem_name]
     tests = m.problems[problem_name]['tests']
 
@@ -42,55 +43,31 @@ def problem(problem_name):
                     "expected": test["output"],
                     "actual": result,
                     "passed": passed
-                })
+            })
+                
+            num_passed = sum(1 for r in test_results if r["passed"])
+            if num_passed == len(test_results):
+                complete = session.get('complete', {})
+                complete[problem_name] = True
+                session['complete'] = complete
+
+            print(session['complete'])
+
 
             # print(test_results)
             return render_template('problem.html', data=data, tests=test_results)
+
         
         except Exception as e:
             return f"Error: {str(e)}", 500, {'Content-Type': 'text/plain'}
-    
-
-# @app.route('/problem/<problem_name>', methods=['GET', 'POST'])
-# def problem(problem_name):
-#     print(m.problems.keys())
-#     data = m.problems[problem_name]
-#     if request.method == 'GET':
-#         # if GET, send blank form
-#         return render_template('problem.html', data=data)
-#     else:
-#         code = request.form.get('code')
-#         print('code:', code)
-#         try:
-#             result, output = m.execute_code(code)
-#             tests = data["tests"]
-#             print(f"result: {result}")
-#             print(f"output: {output}")
-
-#             for test in list(tests):
-#             # example where test case should equal 4
-#                 print(m.test_case(code, test['output']))
-            
-#             # Build response: prioritize returned value, then printed output
-#             response_text = ""
-#             if output:
-#                 response_text += output
-#             if result is not None:
-#                 if response_text:
-#                     response_text += "\n"
-#                 response_text += str(result)
-            
-#             if not response_text:
-#                 response_text = "Code executed with no output"
-            
-#             # Return plain text response for fetch
-#             return response_text, 200, {'Content-Type': 'text/plain'}
-
-#         except Exception as e:
-#             # Return error message as plain text
-#             return f"Error: {str(e)}", 500, {'Content-Type': 'text/plain'}
 
 
+@app.before_request
+def init_complete_counter():
+    if 'complete' not in session:
+        session['complete'] = {'Two Sum': False, 
+                               'Palindrome': False,
+                               'Rain Water': False}
 
 if __name__ == '__main__':
     app.debug = True

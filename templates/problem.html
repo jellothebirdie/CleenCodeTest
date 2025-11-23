@@ -5,8 +5,10 @@
 
 {% block main_content %}
 
-<p style="margin-top: 130px;"><h1 class="page_title">{{ data['problem_name'] }}</h1></p>
-
+<div style="position: relative; margin-top: 25vh;">
+    <a href="{{ url_for('problems') }}" class="btn-container btn-back" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%);">Back</a>
+    <h1 class="page_title">{{ data['problem_name'] }}</h1>
+</div>
 
 <div class="problem_container">
   
@@ -27,13 +29,13 @@
       <label for="code">Your Code Here:</label> 
       <p>
         <!-- <textarea id="code" name="code">{{ data['incorrect_code'][1:] }}</textarea> -->
-         <div class="editor-container">
+        <div class="editor-container">
             <pre id="highlight-layer"><code id="highlight-code"></code></pre>
             <textarea id="code" name="code" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">{{ data['incorrect_code'] }}</textarea>
             <input class="test" type="submit" name="test" value="Test">
         </div>
       </p>
-  </form>
+    </form>
   </div>
 
   <!-- output of test cases -->
@@ -42,24 +44,31 @@
     <!-- dianna wrote this -->
      <ol>
       {% for test in tests %}
+
+      <!-- if code has NOT been submitted for testing... -->
+      <!-- display test cases and expected outputs -->
         {% if 'output' in test.keys() %}
           {% for input_name, input_value in test['input'].items() %}
             <li>
-              <p>{{ input_name }} = {{ input_value }}</p>
-              <p>Expecting: {{ test['output'] }}</p>
+              <p>{{ input_name }} = {{ input_value }}</p> <!-- display test case inputs -->
+              <p>Expecting: {{ test['output'] }}</p>      <!-- display expected output -->
             </li>
           {% endfor %}
+        
+        <!-- else, if code has been submitted for testing... -->
+        <!-- display test cases, expected outputs, actual outputs and pass/fail -->
         {% else %}
           {% for input_name, input_value in test['input'].items() %}
             <li>
-              <p>{{ input_name }} = {{ input_value }}</p>
-              <p>Expecting: {{ test['expected'] }}</p>
-              <p>Result: {{ test['actual'] }}</p>
-              {% if test['expected'] == test['actual'] %}
+              <p>{{ input_name }} = {{ input_value }}</p> <!-- display test case inputs -->
+              <p>Expecting: {{ test['expected'] }}</p>    <!-- display expected outputs -->
+              <p>Result: {{ test['actual'] }}</p>         <!-- display actual outputs -->
+              {% if test['passed'] %}                      <!-- display pass/fail -->
                 <h4>PASSED</h4>
               {% else %}
                 <h4>FAILED</h4>
               {% endif %}
+
             </li>
           {% endfor %}
         {% endif %}
