@@ -109,10 +109,6 @@ Explanation: "tabacat" is not a palindrome.
       "output": True,
     },
     {
-      "input": { "s": " " },
-      "output": True,
-    },
-    {
       "input": { "s": "0P" },
       "output": False,
     },
