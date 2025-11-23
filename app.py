@@ -4,6 +4,7 @@ import io
 import contextlib
 import methods as m
 
+flask run --host=0.0.0.0
 app = Flask(__name__)
 app.secret_key = "changethis"
 
