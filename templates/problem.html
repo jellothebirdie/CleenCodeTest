@@ -57,18 +57,20 @@
             </li>
           {% else %}
             <!-- User-submitted Test Cases -->
-            <li style="border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #53A4F5;">
+            <div class="user-test-case">
+            <li style="display: grid; border-radius: 8px; padding: 12px; margin: 8px 0; background-color: #53A4F5;">
               {% for input_name, input_value in test['input'].items() %}
                 <p style="color:white; font-family: Consolata, sans-serif;"><strong>{{ input_name }} =</strong> {{ input_value }}</p>
               {% endfor %}
               <p style="color:white; font-family: Consolata, sans-serif;"><strong>expected =</strong> {{ test['expected'] }}</p>
               <p style="color:white; font-family: Consolata, sans-serif;"><strong>result =</strong> {{ test['actual'] }}</p>
               {% if test['passed'] %}
-                <p class="btn-container btn-resultp">PASSED</p>
+                <h4 class="btn-container btn-resultp">PASSED</h4>
               {% else %}
-                <p class="btn-container btn-resultf">FAILED</p>
+                <h4 class="btn-container btn-resultf">FAILED</h4>
               {% endif %}
             </li>
+            </div>
           {% endif %}
         {% endfor %}
 
