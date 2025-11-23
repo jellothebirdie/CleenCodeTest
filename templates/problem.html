@@ -38,44 +38,42 @@
     </form>
   </div>
 
-  <!-- output of test cases -->
-  <div>
-    <label for="code">Test Cases:</label>
-    <!-- dianna wrote this -->
-     <ol>
+<div>
+  <label for="code">Test Cases:</label>
+  
+  <!-- scrollable container -->
+  <div style="max-height: 400px; overflow-y: auto; padding: 10px; border-radius: 10px; background: linear-gradient(to bottom, grey, lightgray); border: 2px solid grey;">
+    <ol style="list-style: none; padding: 0; margin: 0;">
+      
       {% for test in tests %}
 
-      <!-- if code has NOT been submitted for testing... -->
-      <!-- display test cases and expected outputs -->
-        {% if 'output' in test.keys() %}
-          {% for input_name, input_value in test['input'].items() %}
-            <li>
-              <p>{{ input_name }} = {{ input_value }}</p> <!-- display test case inputs -->
-              <p>Expecting: {{ test['output'] }}</p>      <!-- display expected output -->
-            </li>
-          {% endfor %}
-        
-        <!-- else, if code has been submitted for testing... -->
-        <!-- display test cases, expected outputs, actual outputs and pass/fail -->
-        {% else %}
-          {% for input_name, input_value in test['input'].items() %}
-            <li>
-              <p>{{ input_name }} = {{ input_value }}</p> <!-- display test case inputs -->
-              <p>Expecting: {{ test['expected'] }}</p>    <!-- display expected outputs -->
-              <p>Result: {{ test['actual'] }}</p>         <!-- display actual outputs -->
-              {% if test['passed'] %}                      <!-- display pass/fail -->
-                <h4>PASSED</h4>
-              {% else %}
-                <h4>FAILED</h4>
-              {% endif %}
+      {% if 'output' in test.keys() %}
+        <!-- Example Test Cases -->
+        {% for input_name, input_value in test['input'].items() %}
+          <li style="border: 1px solid black; border-radius: 8px; padding: 12px; margin: 8px 0; background-color: lightgray;">
+            <p><strong style="color:black">{{ input_name }}:</strong> {{ input_value }}</p>
+            <p><strong style="color:black">Expecting:</strong> {{ test['output'] }}</p>
+          </li>
+        {% endfor %}
+      {% else %}
+        <!-- User-submitted Test Cases -->
+        {% for input_name, input_value in test['input'].items() %}
+          <li style="border: 1px solid black; border-radius: 8px; padding: 12px; margin: 8px 0; background-color: lightgrey;">
+            <p><strong style="color:black">Expecting:</strong> {{ test['expected'] }}</p>
+            <p><strong style="color:black">Result:</strong> {{ test['actual'] }}</p>
+            {% if test['passed'] %}
+              <h4 style="color: white; margin: 5px 0;">PASSED</h4>
+            {% else %}
+              <h4 style="color: gray; margin: 5px 0;">FAILED</h4>
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% endif %}
 
-            </li>
-          {% endfor %}
-        {% endif %}
       {% endfor %}
     </ol>
-
   </div>
+</div>
 
 </div>
 

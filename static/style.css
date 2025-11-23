@@ -113,6 +113,35 @@ nav a:focus {
   
   min-height: 100vh;       /* ensure full viewport height for vertical centering */
   transform: translateY(-25vh);
+    /* Add smooth transitions */
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-25vh) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-25vh) translateY(0);
+  }
+}
+
+/* Smooth transitions for all content */
+.main {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .page_title {
@@ -182,7 +211,6 @@ nav a:focus {
   background-color: white;
   color: #00178A;
   padding: 10px 20px;
-
 }
 
 .btn-back:hover {
@@ -385,5 +413,64 @@ pre {
 }
 textarea{
     width:100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;  /* Stack vertically */
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.sections-wrapper {
+  display: flex;  /* Display sections side-by-side */
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section {
+  background: #00178A;
+  padding: 10px 50px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  width: 250px;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 180px;
+}
+
+.section h2 {
+margin: 0;  /* Remove default h2 margins */
+padding: 0;  /* Remove default padding */
+font-size: 24px;  /* Match button font size if needed */
+line-height: 1.2;  /* Tighter line height */
+}
+
+.sections-wrapper > div {  /* Target divs inside sections-wrapper */
+  display: flex;
+  flex-direction: column;     /* Stack section and button vertically */
+  align-items: center;        /* Center items horizontally */
+  gap: 10px;                  /* Space between section and button */
+  width: fit-content;
+}
+
+.description {
+  font-size: 24px;
+  font-family: K2D, sans-serif;
+  color: white;
+  text-align: center;
+  padding: 20px 40px;
+  background-color: #00178A;
+  opacity: 0.8;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 

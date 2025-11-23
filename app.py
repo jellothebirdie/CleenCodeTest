@@ -15,14 +15,20 @@ def welcome():
 def problems():
     return render_template('problems.html', page_title='Problems')
 
-@app.route('/problem/<problem_name>', methods=['GET', 'POST'])
-def problem(problem_name):
+@app.route('/problem/<problem_slug>', methods=['GET', 'POST'])
+def problem(problem_slug):
     print("SESSION AT START:", session.get('complete'))
+    slugs_to_names = {
+    "two-sum": "Two Sum",
+    "palindrome": "Palindrome",
+    "rain-water": "Rain Water"
+    }
+    problem_name = slugs_to_names[problem_slug]
     data = m.problems[problem_name]
     tests = m.problems[problem_name]['tests']
 
     if request.method == 'GET':
-        return render_template('problem.html', data=data, tests=tests)
+        return render_template('problem.html', data=data, tests=tests, page_title=problem_name)
 
     # POST request
     else:
@@ -55,7 +61,7 @@ def problem(problem_name):
 
 
             # print(test_results)
-            return render_template('problem.html', data=data, tests=test_results)
+            return render_template('problem.html', data=data, tests=test_results, page_title=problem_name)
 
         
         except Exception as e:

@@ -5,31 +5,37 @@
 
 {% block main_content %}
 
-<h1 class="page_title">Problems</h1>
+<h1 class="page_title" style = "margin-top: 25vh;">Problems</h1>
 
 <!-- <span class="page_text"> -->
     
-    <div class="container">
+<div class="container">
+    <div class="description">
+        <p>Hey, computer scientist! <br><br>As you can see, the ocean is polluted. But you can help! <br> <br>
+            Each time you solve a technical interview question, a piece of trash is cleaned from the ocean. <br><br><b>Click below to begin solving.</b> </p>
+    </div>
+    <div class = "sections-wrapper">
         <div>
             <div class="section">
                 <h2>Level 1</h2>
             </div>
-            <a  href="{{url_for('problem', problem_name='Two Sum')}}" class="btn-container btn-problems">Two Sum</a>
+            <a  href="{{url_for('problem', problem_slug='two-sum')}}" class="btn-container btn-problems">Two Sum</a>
         </div>
 
         <div>
             <div class="section">
                 <h2>Level 2</h2>
             </div>
-            <a  href="{{url_for('problem', problem_name='Palindrome')}}" class="btn-container btn-problems">Palindrome</a>
+            <a  href="{{url_for('problem', problem_slug='palindrome')}}" class="btn-container btn-problems">Palindrome</a>
         </div>
         
         <div>
             <div class="section">
                 <h2>Level 3</h2>
             </div>
-            <a  href="{{url_for('problem', problem_name='Rain Water')}}" class="btn-container btn-problems">Rain Water</a>
+            <a  href="{{url_for('problem', problem_slug='rain-water')}}" class="btn-container btn-problems">Rain Water</a>
         </div>
+    </div>
 </div>
     
 <!-- </span> -->

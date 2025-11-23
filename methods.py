@@ -29,7 +29,6 @@ def execute_code(code):
     
     return result, output
 
-
 def test_case(code, expected):
     return str(execute_code(code)[0]) == str(expected)
 
