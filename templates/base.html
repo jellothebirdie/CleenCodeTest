@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel='stylesheet' href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="/static/images/anchor.webp" type="image/x-icon">
 
     {% block head_stuff %}{% endblock %}
 </head>
@@ -25,7 +26,7 @@
   <header class="header-container">
     <img src="/static/images/wave.png" class="header-image">
     <a href="{{ url_for('welcome') }}">
-      <img src="/static/images/coral.png" class="logo" alt="Logo">
+      <img src="/static/images/anchor.webp" class="logo" alt="Logo">
     </a>
   </header>
   <div class="main_content">
