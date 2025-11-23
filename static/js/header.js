@@ -1,8 +1,9 @@
-const headerImage = document.querySelector('.header-image');
+const headerContainer = document.querySelector('.header-container');
 let lastScrollY = window.scrollY;
 
 function handleScroll() {
     const currentScrollY = window.scrollY;
+    const headerImage = document.querySelector('.header-image');
     const imageHeight = headerImage.offsetHeight;
     
     // Calculate opacity based on scroll position
@@ -13,13 +14,13 @@ function handleScroll() {
     opacity = Math.max(0, Math.min(1, opacity));
     
     // Apply the gradual opacity
-    headerImage.style.opacity = opacity;
+    headerContainer.style.opacity = opacity;
     
     // Disable pointer events when fully faded
     if (opacity === 0) {
-        headerImage.style.pointerEvents = 'none';
+        headerContainer.style.pointerEvents = 'none';
     } else {
-        headerImage.style.pointerEvents = 'auto';
+        headerContainer.style.pointerEvents = 'auto';
     }
     
     lastScrollY = currentScrollY;

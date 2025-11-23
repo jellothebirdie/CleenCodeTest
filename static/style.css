@@ -30,19 +30,36 @@ body {
   width: 75px;
 }
 
-/* Other */
+/* Header container */
+.header-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
 
 .header-image {
-  position: sticky;   /* sticks to viewport */
-  top: 0;            /* at top */
-  left: 0;           /* start from left edge */
-  width: 100%;       /* cover full width */
-  height: auto;      /* maintain aspect ratio */
-  z-index: 2;     /* above other content */
-  transition: opacity 0.3s ease;
+  position: relative;  /* Makes it a positioning context for absolute children */
+  width: 100%;
+  height: auto;
+  display: block;
   margin: 0;
   padding: 0;
+  transition: opacity 0.3s ease;
 }
+
+.logo {
+  position: absolute;  /* Absolute positioning relative to header-image */
+  top: 3vh;          /* Distance from top */
+  left: 3vh;         /* Distance from left */
+  width: 75px;       /* Adjust logo size */
+  height: auto;
+  z-index: 3;         /* Above the header image */
+  transition: opacity 0.3s ease;
+}
+
+/* Other */
 
 nav ul {
     position: fixed;

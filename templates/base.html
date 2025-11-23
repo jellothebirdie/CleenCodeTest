@@ -22,7 +22,12 @@
 
 <body>
 
-  <img src="/static/images/wave.png" class="header-image">
+  <header class="header-container">
+    <img src="/static/images/wave.png" class="header-image">
+    <a href="{{ url_for('welcome') }}">
+      <img src="/static/images/coral.png" class="logo" alt="Logo">
+    </a>
+  </header>
   <div class="main_content">
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages() %}
