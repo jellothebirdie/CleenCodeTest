@@ -27,6 +27,11 @@ def problem(problem_name):
         print('code:', code)
         try:
             result, output = m.execute_code(code)
+            print(f"result: {result}")
+            print(f"output: {output}")
+
+            # example where test case should equal 4
+            print(m.test_case(code, 4))
             
             # Build response: prioritize returned value, then printed output
             response_text = ""
