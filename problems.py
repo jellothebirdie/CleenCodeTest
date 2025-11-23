@@ -170,7 +170,7 @@ def trap(height):
     for i in range(len(height)):
         if height[i] > max_left:
             max_left = height[i]
-        water += max_left - height[i]  # ignores right boundary
+        water += max_left - height[i]
     return water""",
                             "description":
 """
