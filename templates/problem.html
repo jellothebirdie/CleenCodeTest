@@ -40,9 +40,32 @@
   <div>
     <label for="code">Test Cases:</label>
     <!-- dianna wrote this -->
-    {% block test_cases %}
-      
-    {% endblock %}
+     <ol>
+      {% for test in tests %}
+        {% if 'output' in test.keys() %}
+          {% for input_name, input_value in test['input'].items() %}
+            <li>
+              <p>{{ input_name }} = {{ input_value }}</p>
+              <p>Expecting: {{ test['output'] }}</p>
+            </li>
+          {% endfor %}
+        {% else %}
+          {% for input_name, input_value in test['input'].items() %}
+            <li>
+              <p>{{ input_name }} = {{ input_value }}</p>
+              <p>Expecting: {{ test['expected'] }}</p>
+              <p>Result: {{ test['actual'] }}</p>
+              {% if test['expected'] == test['actual'] %}
+                <h4>PASSED</h4>
+              {% else %}
+                <h4>FAILED</h4>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </ol>
+
   </div>
 
 </div>

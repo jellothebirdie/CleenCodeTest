@@ -18,56 +18,38 @@ def problems():
 @app.route('/problem/<problem_name>', methods=['GET', 'POST'])
 def problem(problem_name):
     data = m.problems[problem_name]
+    tests = m.problems[problem_name]['tests']
 
     if request.method == 'GET':
-        return render_template('problem.html', data=data)
+        return render_template('problem.html', data=data, tests=tests)
 
     # POST request
-    code = request.form.get('code')
+    else:
+        code = request.form.get('code')
 
-    try:
-        # Compile user code and extract the function
-        func = load_user_function(code)
+        try:
+            # Compile user code and extract the function
+            func = m.load_user_function(code)
 
-        if func is None:
-            return "No function found in submitted code.", 400
+            if func is None:
+                return "No function found in submitted code.", 400
 
-        test_results = []
-        for test in data["tests"]:
-            passed, result = run_test(func, test)
-            test_results.append({
-                "input": test["input"],
-                "expected": test["output"],
-                "actual": result,
-                "passed": passed
-            })
+            test_results = []
+            for test in data["tests"]:
+                passed, result = m.run_test(func, test)
+                test_results.append({
+                    "input": test["input"],
+                    "expected": test["output"],
+                    "actual": result,
+                    "passed": passed
+                })
 
-        # Build pretty text output
-        output_lines = []
-        for tr in test_results:
-            status = "PASS" if tr["passed"] else "FAIL"
-            line = f"{status} | input={tr['input']} expected={tr['expected']} got={tr['actual']}"
-            output_lines.append(line)
-
-        return "\n".join(output_lines), 200, {'Content-Type': 'text/plain'}
-
-    except Exception as e:
-        return f"Error: {str(e)}", 500, {'Content-Type': 'text/plain'}
+            # print(test_results)
+            return render_template('problem.html', data=data, tests=test_results)
+        
+        except Exception as e:
+            return f"Error: {str(e)}", 500, {'Content-Type': 'text/plain'}
     
-def load_user_function(code):
-    namespace = {}
-    exec(code, namespace)
-    functions = [obj for obj in namespace.values() if callable(obj)]
-    return functions[-1] if functions else None
-
-def run_test(func, test):
-    # Extract args from JSON into function call
-    inputs = test["input"]
-
-    # If input is a dict, pass via **kwargs
-    result = func(**inputs)
-    
-    return result == test["output"], result
 
 # @app.route('/problem/<problem_name>', methods=['GET', 'POST'])
 # def problem(problem_name):
